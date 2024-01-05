@@ -1,0 +1,18 @@
+type: object
+properties:
+  idUser:
+    type: integer
+    format: int64
+    description: Fonctionnel id of the user.
+  firstname:
+    type: string
+    description: firstname of the user.
+  lastname:
+    type: string
+    description: lastname of the user.
+  email:
+    type: string
+    description: email of the user.
+  password:
+    type: string
+    description: password of the user.

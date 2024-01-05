@@ -1,0 +1,47 @@
+openapi: "3.0.0"
+
+info:
+  title: API Admin-app #ca sera utiliser pour les endPoint @RequestMapping("${openapi.aPIDeTest.base-path:/service/api}")
+  version: "1.0"
+  description: Microservice pour une admin-app de openAPI
+
+servers:
+  - url: http://localhost:8080/adminapps/api
+
+tags:
+  - name: Users
+    description: Users specific data.
+  - name: Roles
+    description: Roles specific data.
+  - name: Products
+    description: Products specific data.
+
+paths:
+
+  ##############
+  ## API Admin-app ##
+  ##############
+
+  /products:
+    $ref: '../components/api/products.yml#/paths/~1products'
+
+  /products/{idProduct}:
+    $ref: '../components/api/products.yml#/paths/~1products-reference'
+
+  /productByUser:
+    $ref: '../components/api/products.yml#/paths/~1productByUser'
+
+  /users:
+    $ref: '../components/api/users.yml#/paths/~1users'
+
+  /users/{idUser}:
+    $ref: '../components/api/users.yml#/paths/~1users-reference'
+
+  /userByRole:
+    $ref: '../components/api/users.yml#/paths/~1userByRole'
+
+  /roles:
+    $ref: '../components/api/roles.yml#/paths/~1roles'
+
+  /roles/{idRole}:
+    $ref: '../components/api/roles.yml#/paths/~1roles-reference'

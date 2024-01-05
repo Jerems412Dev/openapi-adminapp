@@ -1,0 +1,205 @@
+openapi: 3.0.3
+
+info:
+  title: API Admin-app
+  version: "1.0"
+  description: Admin-app API
+
+servers:
+  - url: http://localhost:8080/users/api
+
+tags:
+  - name: Users
+    description: Users specific data.
+
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get All Actifs Users
+      operationId: getAllAppUser
+      parameters:
+        - name: currentPage
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sizePage
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: SUCCESS
+          content:
+            'application/json':
+              schema:
+                $ref: '../model/users/UsersResultListDTO.yml'
+              example:
+                productList:
+                  - idUser: 0
+                    firstname: Jeremy
+                    lastname: OBIANG
+                    email: myemail@gmail.com
+                    password: mypassword
+                  - idUser: 0
+                    firstname: Jeremy
+                    lastname: OBIANG
+                    email: myemail@gmail.com
+                    password: mypassword
+        404:
+          description: NOT FOUND
+        400:
+          description: BAD REQUEST
+    post:
+      tags:
+        - Users
+      summary: Add a user
+      operationId: createAppUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../model/users/UserDTO.yml'
+            example:
+              idUser: 0
+              firstname: Jeremy
+              lastname: OBIANG
+              email: myemail@gmail.com
+              password: mypassword
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '../model/users/UserDTO.yml'
+              example:
+                idUser: 0
+                firstname: Jeremy
+                lastname: OBIANG
+                email: myemail@gmail.com
+                password: mypassword
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST
+  /users-reference:
+    get:
+      tags:
+        - Users
+      summary: Retrieve an user
+      operationId: getAppUser
+      parameters:
+        - name: idUser
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example:
+            idUser: 1
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '../model/users/UserDTO.yml'
+              examples:
+                user1:
+                  value:
+                    idUser: 0
+                    firstname: Jeremy
+                    lastname: OBIANG
+                    email: myemail@gmail.com
+                    password: mypassword
+                user2:
+                  value:
+                    idUser: 0
+                    firstname: Jeremy
+                    lastname: OBIANG
+                    email: myemail@gmail.com
+                    password: mypassword
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST
+    put:
+      tags:
+        - Users
+      summary: Add a user
+      operationId: updateAppUser
+      parameters:
+        - name: idUser
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example:
+            idUser: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../model/users/UserDTO.yml'
+            examples:
+              user:
+                value:
+                  idUser: 1
+                  firstname: Jeremy
+                  lastname: OBIANG
+                  email: myemail@gmail.com
+                  password: mypassword
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '../model/users/UserDTO.yml'
+              example:
+                idUser: 1
+                firstname: Jeremy
+                lastname: OBIANG
+                email: myemail@gmail.com
+                password: mypassword
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST
+  /userByRole:
+    get:
+      tags:
+        - Users
+      summary: Get All Actifs Users by role
+      operationId: getAppAllUserByRole
+      parameters:
+        - name: currentPage
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sizePage
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            'application/json':
+              schema:
+                $ref: '../model/users/UserResultListByRoleDTO.yml'
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST

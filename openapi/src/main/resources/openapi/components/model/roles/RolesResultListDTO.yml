@@ -1,0 +1,7 @@
+type: object
+properties:
+  roleList:
+    type: array
+    description: The List of the RoleDTO.
+    items:
+      $ref: './RoleDTO.yml'

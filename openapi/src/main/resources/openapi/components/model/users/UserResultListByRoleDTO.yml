@@ -1,0 +1,11 @@
+type: object
+properties:
+  idRole:
+    type: integer
+    description: Fonctionnel id of the role
+    format: int64
+  UserList:
+    type: array
+    description: The List of the UsersResultDTO by role
+    items:
+      $ref: './UserDTO.yml'

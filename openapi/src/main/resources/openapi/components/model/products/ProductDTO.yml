@@ -1,0 +1,13 @@
+type: object
+properties:
+  idProduct:
+    type: integer
+    format: int64
+    description: Fonctionnel id of the product.
+  name:
+    type: string
+    description: Name of the role.
+  qtStock:
+    type: number
+    format: double
+    description: Quantity of the product in stock.

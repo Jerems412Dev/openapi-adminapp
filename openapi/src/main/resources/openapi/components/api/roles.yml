@@ -1,0 +1,151 @@
+openapi: 3.0.3
+
+info:
+  title: API Admin-app
+  version: "1.0"
+  description: Admin-app API
+
+servers:
+  - url: http://localhost:8080/roles/api
+
+tags:
+  - name: Roles
+    description: Roles specific data.
+
+paths:
+  /roles:
+    get:
+      tags:
+        - Roles
+      summary: Get All Actifs Roles
+      operationId: getAllAppRole
+      parameters:
+        - name: currentPage
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sizePage
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: SUCCESS
+          content:
+            'application/json':
+              schema:
+                $ref: '../model/roles/RolesResultListDTO.yml'
+              example:
+                RoleList:
+                  - idRole: 0
+                    name: customer
+                  - idRole: 1
+                    name: admin
+        404:
+          description: NOT FOUND
+        400:
+          description: BAD REQUEST
+    post:
+      tags:
+        - Roles
+      summary: Add a role
+      operationId: createAppRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../model/roles/RoleDTO.yml'
+            example:
+              idRole: 0
+              name: role
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '../model/roles/RoleDTO.yml'
+              example:
+                idRole: 0
+                name: role
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST
+  /roles-reference:
+    get:
+      tags:
+        - Roles
+      summary: Retrieve an role
+      operationId: getAppRole
+      parameters:
+        - name: idRole
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example:
+            idRole: 1
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '../model/roles/RoleDTO.yml'
+              examples:
+                role1:
+                  value:
+                    idRole: 0
+                    name: role1
+                role2:
+                  value:
+                    idRole: 1
+                    name: role2
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST
+    put:
+      tags:
+        - Roles
+      summary: Add a role
+      operationId: updateAppRole
+      parameters:
+        - name: idRole
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example:
+            idRole: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../model/roles/RoleDTO.yml'
+            examples:
+              role:
+                value:
+                  idRole: 0
+                  name: role
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '../model/roles/RoleDTO.yml'
+              example:
+                idRole: 0
+                name: role
+        '404':
+          description: NOT FOUND
+        '400':
+          description: BAD REQUEST

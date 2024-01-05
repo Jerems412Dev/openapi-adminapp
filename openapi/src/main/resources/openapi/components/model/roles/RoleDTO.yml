@@ -1,0 +1,9 @@
+type: object
+properties:
+  idRole:
+    type: integer
+    format: int64
+    description: Fonctionnel id of the role.
+  name:
+    type: string
+    description: Name of the role.
