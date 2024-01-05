@@ -1,0 +1,4 @@
+
+£typescript:S6571"†"matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject" is overridden by string in this union type.(Ë’ÿä
+ˆtypescript:S6571'"l"string" | "number" | "boolean" | "object" | "integer" | "array" is overridden by string in this union type.(…øèŸ
+§typescript:S65718"Š"int32" | "int64" | "float" | "double" | "byte" | "binary" | "date" | "date-time" | "password" is overridden by string in this union type.(Â¦Õô

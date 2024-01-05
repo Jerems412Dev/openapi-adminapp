@@ -1,0 +1,23 @@
+<div class="row">
+  <h2>Role</h2>
+  <br>
+</div>
+<a href="addrole" class="btn btn-info">Add role</a>
+<table class="table table-striped table-bordered text-center">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let role of roleList.roleResultListDTO">
+    <td>{{role.idRole}}</td>
+    <td>{{role.name}}</td>
+    <td>
+      <a href="" class="btn btn-danger" role="button">Delete</a>&nbsp; &nbsp;
+    </td>
+  </tr>
+  </tbody>
+</table>

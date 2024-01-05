@@ -1,0 +1,25 @@
+<div class="row">
+  <h2>Product</h2>
+  <br>
+</div>
+<a href="addproduct" class="btn btn-info">Add product</a>
+<table class="table table-striped table-bordered text-center">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>QUANTITY IN STOCK</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of productList.productsResultListDTO">
+    <td>{{product.idProduct}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.qtStock}}</td>
+    <td>
+      <a href="" class="btn btn-danger" role="button">Delete</a>&nbsp; &nbsp;
+    </td>
+  </tr>
+  </tbody>
+</table>
